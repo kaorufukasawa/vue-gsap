@@ -20,7 +20,6 @@
         </transition-group>
         <div class="shape-container">
             <transition
-                tag="div"
                 appear
                 class="circle"
             >
@@ -113,7 +112,7 @@ export default {
 }
 
 @media (max-width: 640px) {
-    .shape-container img {
+     .circle {
         display: none;
     }
 }
