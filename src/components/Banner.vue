@@ -22,8 +22,9 @@
             <transition
                 tag="div"
                 appear
+                class="circle"
             >
-                <img class="circle" src="../assets/circle.svg" alt="Circle"/>
+                <img src="../assets/circle.svg" alt="Circle"/>
             </transition>
         </div>
     </div>
