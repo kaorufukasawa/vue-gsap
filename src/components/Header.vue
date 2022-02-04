@@ -1,28 +1,67 @@
 <template>
-    <div class="header">
-        <div class="header-title">
-            <span class="header-title-text">Vue x GSAP</span>
-        </div>
-        <transition
-            appear
-            @enter="linksEnter"
-        >
-            <div class="links-container">
-                <div class="links">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
+    <transition
+        appear
+        name="fade"
+        @before-enter="headerBeforeEnter"
+        @enter="headerEnter"
+    >
+        <div class="header">
+            <div class="header-title">
+                <span class="header-title-text">Vue x GSAP</span>
             </div>
-        </transition>
-    </div>
+            <transition
+                appear
+                @enter="linksEnter"
+            >
+                <div class="links-container">
+                    <div class="links">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </transition>
+        </div>
+    </transition>
 </template>
 
 <script>
+import gsap from "gsap"
 
 export default {
     setup() {
-        // アニメーションコードをここに追加   
+        const headerBeforeEnter = (el) => {
+            gsap.set(el, {
+                y: "-100%",
+                opacity: 0
+            })
+        }
+
+        // ヘッダーが上から落ちてくるアニメーション
+        const headerEnter = (el, done) => {
+            gsap.to(el, {
+                opacity: 1,
+                duration: 1,
+                y: "0",
+                ease: "Power0.easeOut",
+                onComplete: done
+            })
+        }
+
+        const linksBeforeEnter = (el) => {
+            el.style.opacity = 0
+        }
+
+        // リンクがフェイドインするアニメーション
+        const linksEnter = (el, done) => {
+            gsap.to(el, {
+                duration: 1,
+                opacity: 1,
+                delay: 1,
+                onComplete: done
+            })
+        }
+        return { headerBeforeEnter, linksBeforeEnter, headerEnter, linksEnter }
     }
 }
 </script>
