@@ -66,7 +66,7 @@ export default {
         onMounted(() => {
             // ボールが上から落ちてくるアニメーションのスタート位置設定
             gsap.set(".circle", {
-                y: "-100%"
+                y: "-150%"
             })
 
             // ボールが上から落ちて跳ねるアニメーション
@@ -101,11 +101,8 @@ export default {
     line-height: normal;
 }
 
-.shape-container img {
-    position: absolute
-}
-
 .circle {
+    position: absolute;
     width: 9rem;
     height: 9rem;
     top: -1.2rem;
