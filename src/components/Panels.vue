@@ -10,7 +10,7 @@
             <div
                 v-for="(panel, index) in panels"
                 :key="panel.name"
-                class="card"
+                class="panel"
                 :data-index="index"
             >
                 <div>{{ panel.name }}</div>
@@ -72,7 +72,7 @@ export default {
     max-width: 1200px;
 }
 
-.card {
+.panel {
     height: 14rem;
     width: 12rem;
     text-align: center;
