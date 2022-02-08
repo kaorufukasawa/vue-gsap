@@ -1,28 +1,30 @@
 <template>
-    <transition
-        appear
-        name="fade"
-        @before-enter="headerBeforeEnter"
-        @enter="headerEnter"
-    >
-        <div class="header">
-            <div class="header-title">
-                <span class="header-title-text">Vue x GSAP</span>
-            </div>
-            <transition
-                appear
-                @enter="linksEnter"
-            >
-                <div class="links-container">
-                    <div class="links">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
+    <div class="header">
+        <transition
+            appear
+            name="fade"
+            @before-enter="headerBeforeEnter"
+            @enter="headerEnter"
+        >
+            <div class="header-container">
+                <div class="header-title">
+                    <span class="header-title-text">Vue x GSAP</span>
                 </div>
-            </transition>
-        </div>
-    </transition>
+                <transition
+                    appear
+                    @enter="linksEnter"
+                >
+                    <div class="links-container">
+                        <div class="links">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </transition>
+            </div>
+        </transition>
+    </div>
 </template>
 
 <script>
@@ -67,7 +69,7 @@ export default {
 </script>
 
 <style scoped>
-.header {
+.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;

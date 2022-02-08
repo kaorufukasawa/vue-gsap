@@ -2,7 +2,6 @@
     <div class="banner">
         <transition-group
             tag="div"
-            class="text-container"
             appear
             @before-enter="textBeforeEnter"
             @enter="textEnter"
@@ -10,7 +9,7 @@
             <div
                 v-for="(line, index) in lines"
                 :key="line.phrase"
-                class="card"
+                class="text-container"
                 :data-index="index"
             >
                 <div>
@@ -21,9 +20,8 @@
         <div class="shape-container">
             <transition
                 appear
-                class="circle"
             >
-                <img src="../assets/circle.svg" alt="Circle"/>
+                <img class="circle" src="../assets/circle.svg" alt="Circle"/>
             </transition>
         </div>
     </div>
