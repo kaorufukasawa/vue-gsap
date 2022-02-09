@@ -1,5 +1,6 @@
 <template>
     <div class="header">
+        <!--ヘッダーのアニメーション-->
         <transition
             appear
             @before-enter="headerBeforeEnter"
@@ -9,8 +10,10 @@
                 <div class="header-title">
                     <span class="header-title-text">Vue x GSAP</span>
                 </div>
+                <!--リンクのアニメーション-->
                 <transition
                     appear
+                    @before-enter="linksBeforeEnter"
                     @enter="linksEnter"
                 >
                     <div class="links-container">
@@ -31,6 +34,7 @@ import gsap from "gsap"
 
 export default {
     setup() {
+        // ヘッダーが上から落ちてくるアニメーション
         const headerBeforeEnter = (el) => {
             gsap.set(el, {
                 y: "-100%",
@@ -38,7 +42,6 @@ export default {
             })
         }
 
-        // ヘッダーが上から落ちてくるアニメーション
         const headerEnter = (el, done) => {
             gsap.to(el, {
                 opacity: 1,
@@ -49,11 +52,11 @@ export default {
             })
         }
 
+        // リンクがフェイドインするアニメーション
         const linksBeforeEnter = (el) => {
             el.style.opacity = 0
         }
 
-        // リンクがフェイドインするアニメーション
         const linksEnter = (el, done) => {
             gsap.to(el, {
                 duration: 1,
