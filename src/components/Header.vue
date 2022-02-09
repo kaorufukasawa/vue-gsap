@@ -2,7 +2,6 @@
     <div class="header">
         <transition
             appear
-            name="fade"
             @before-enter="headerBeforeEnter"
             @enter="headerEnter"
         >
