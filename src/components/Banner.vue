@@ -62,20 +62,17 @@ export default {
                 onComplete: done,
             })
         }
-
+        // ボールが上から落ちてくるアニメーションのスタート位置設定 
         const ballBeforeEnter = (el) => {
-            // ボールが上から落ちてくるアニメーションのスタート位置設定
             gsap.set(el, {
                 y: "-150%"
             })
         }
-
+        // ボールが上から落ちて跳ねるアニメーション
         const ballEnter = (el, done) => {
-            // ボールが上から落ちて跳ねるアニメーション
+            const tl = gsap.timeline( { delay:5, onComplete: done } ) // アニメーションのタイムライン
             const screenWidth = window.innerWidth // 画面の横幅
             const elementWidth = document.querySelector(".circle").getBoundingClientRect().right // ボールの横幅
-            const tl = gsap.timeline( { delay:5, onComplete: done } ) // アニメーションのタイムライン
-
             // ボールのアニメーションの設定
             tl
                 .to(el, { y: 350 } )
