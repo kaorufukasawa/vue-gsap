@@ -52,7 +52,7 @@ export default {
         const textEnter = (el, done) => {
             gsap.to(el, {
                 opacity: 1,
-                duration: 1,
+                duration: 1.2,
                 y: "0",
                 ease: "bounce.out",
                 // テキストを0.4秒ずつずらして上から落とす
