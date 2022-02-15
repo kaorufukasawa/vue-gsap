@@ -21,6 +21,8 @@
         <div class="shape-container">
             <transition
                 appear
+                @before-enter="ballBeforeEnter"
+                @enter="ballEnter"
             >
                 <img class="circle" src="../assets/circle.svg" alt="Circle"/>
             </transition>
@@ -29,7 +31,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue"
+import { ref } from "vue"
 import gsap from "gsap"
 
 export default {
@@ -60,29 +62,30 @@ export default {
                 onComplete: done,
             })
         }
-        const tl = gsap.timeline( { delay:5 } ) // アニメーションのタイムライン
 
-        onMounted(() => {
+        const ballBeforeEnter = (el) => {
             // ボールが上から落ちてくるアニメーションのスタート位置設定
-            gsap.set(".circle", {
+            gsap.set(el, {
                 y: "-150%"
             })
+        }
 
+        const ballEnter = (el, done) => {
             // ボールが上から落ちて跳ねるアニメーション
             const screenWidth = window.innerWidth // 画面の横幅
             const elementWidth = document.querySelector(".circle").getBoundingClientRect().right // ボールの横幅
+            const tl = gsap.timeline( { delay:5, onComplete: done } ) // アニメーションのタイムライン
 
             // ボールのアニメーションの設定
             tl
-                .to(".circle", { y: 350 } )
-                .to(".circle", { y: 0, duration: 0.5 } )
-                .to(".circle", { y: 350, duration: 1.25, ease: "bounce.out" })
-                .to(".circle", { x: screenWidth - elementWidth - 10, duration: 2.5 }, "-=1.75")
-                .to(".circle", { x: 0, duration: 1 }, "+=1")
-                
-        })
+                .to(el, { y: 350 } )
+                .to(el, { y: 0, duration: 0.5 } )
+                .to(el, { y: 350, duration: 1.25, ease: "bounce.out" })
+                .to(el, { x: screenWidth - elementWidth - 10, duration: 2.5 }, "-=1.75")
+                .to(el, { x: 0, duration: 1 }, "+=1")
+        }
         
-        return { lines, textEnter, textBeforeEnter }
+        return { lines, textEnter, textBeforeEnter, ballBeforeEnter, ballEnter }
     }
 }
 </script>
