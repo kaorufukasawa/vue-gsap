@@ -1,24 +1,24 @@
-# vue-gsap3
+# Vue x GSAPスターターキット
 
-## Project setup
+このリポジトリは、Twilioブログの「GSAPとVue 3でアニメーションを作成する方法」を読んでいただいた方向けのソースコードです。
+
+チュートリアルを最後まで進めると、以下のようなアニメーションが完成します。
+
+![vue-gsap-demo](https://user-images.githubusercontent.com/30919614/154176130-a896a9ab-53a5-43b1-b8a0-1091d3244a0c.gif)
+
+[`main`](https://github.com/smwilk/vue-gsap)ブランチは、アニメーション適用前のコードを格納しています。アニメーション的用後のコードは[`complete-app`](https://github.com/smwilk/vue-gsap/tree/complete-app)ブランチを参照してください。
+
+## プロジェクトの依存パッケージをインストールする
+
+リポジトリのルートディレクトリで、以下のコマンドを実行してください。
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### プロジェクトを実行する
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ブラウザで[http://localhost:8080](http://localhost:8080)を開きます。
