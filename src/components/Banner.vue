@@ -75,11 +75,11 @@ export default {
             const elementWidth = document.querySelector(".circle").getBoundingClientRect().right // ボールの横幅
             // ボールのアニメーションの設定
             tl
-                .to(el, { y: 350 } )
-                .to(el, { y: 0, duration: 0.5 } )
-                .to(el, { y: 350, duration: 1.25, ease: "bounce.out" })
-                .to(el, { x: screenWidth - elementWidth - 10, duration: 2.5 }, "-=1.75")
-                .to(el, { x: 0, duration: 1 }, "+=1")
+                .to(el, { y: 350 } ) // y軸350pxの位置に落ちる
+                .to(el, { y: 0, duration: 0.5 } )　// 0.5秒間でy軸0pxの位置まで戻る
+                .to(el, { y: 350, duration: 1.25, ease: "bounce.out" }) // 1.25秒間でy軸350pxの位置に跳ねながら戻る
+                .to(el, { x: screenWidth - elementWidth - 10, duration: 2.5 }, "-=1.75") // 2.5秒間でx軸の画面の端まで跳ねながら移動する
+                .to(el, { x: 0, duration: 1 }, "+=1") // 1秒間でx軸0pxまで戻る
         }
         
         return { lines, textEnter, textBeforeEnter, ballBeforeEnter, ballEnter }
