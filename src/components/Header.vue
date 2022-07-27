@@ -1,19 +1,30 @@
 <template>
     <div class="header">
-        <!--ここからtransitionコードを開始-->
-        <div class="header-container">
-            <div class="header-title">
-                <span class="header-title-text">Vue x GSAP</span>
-            </div>
-            <div class="links-container">
-                <div class="links">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+        <transition
+            appear
+            @before-enter="headerBeforeEnter"
+            @enter="headerEnter"
+        >
+            <div class="header-container">
+                <div class="header-title">
+                    <span class="header-title-text">Vue x GSAP</span>
                 </div>
+                <!--リンクのアニメーション-->
+                <transition
+                    appear
+                    @before-enter="linksBeforeEnter"
+                    @enter="linksEnter"
+                >
+                    <div class="links-container">
+                        <div class="links">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </transition>
             </div>
-        </div>
-        <!--ここでtransitionをクローズ-->
+        </transition>
     </div>
 </template>
 
